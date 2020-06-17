@@ -123,7 +123,7 @@ int main(int argc, char **argv){
 			}
 			else {
 				// Read image from file
-				im = cv::imread(vstrImageFilenames[frame_id], CV_LOAD_IMAGE_UNCHANGED);
+				im = cv::imread(vstrImageFilenames[frame_id], -1);
 				tframe = vTimestamps[frame_id];
 			}
 			if (im.empty()){
