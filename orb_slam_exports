@@ -1,0 +1,15 @@
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/aswath/ORB_SLAM2/Examples/ROS
+export LIBRARY_PATH=${LIBRARY_PATH}:/home/aswath/ORB_SLAM2/lib:/home/aswath/ORB_SLAM2/Thirdparty/DBoW2/lib:/home/aswath/ORB_SLAM2/Thirdparty/g2o/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/aswath/ORB_SLAM2/lib:/home/aswath/ORB_SLAM2/Thirdparty/DBoW2/lib:/home/aswath/ORB_SLAM2/Thirdparty/g2o/lib
+
+aswath@15-bs0xx:~/ORB_SLAM2$ ./Examples/Monocular/mono_kitti Vocabulary/ORBvoc.txt Examples/Monocular/KITTI00-02.yaml /home/aswath/Downloads/dataset/sequences/00
+
+running orb slam with gmapping:
+rosrun ORB_SLAM2 Mono Vocabulary/ORBvoc.txt Examples/Monocular/KITTI00-02.yaml /home/aswath/Downloads/dataset/sequences/00
+rosrun pointcloud_to_laserscan pointcloud_to_laserscan_node
+rosrun gmapping slam_gmapping
+rosrun rviz rviz
+Displays->Add->Map
+set Topic to /map
+
+rosrun ORB_SLAM2 Monopub Vocabulary/ORBvoc.txt Examples/Monocular/KITTI00-02.yaml /home/aswath/Downloads/dataset/sequences/00 0
